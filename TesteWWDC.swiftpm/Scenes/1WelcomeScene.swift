@@ -63,6 +63,7 @@ extension WelcomeScene {
     func addTextLabel(textClass: String, position: CGPoint) {
         let font: String = "American Typewriter"
         let textlbl = SKLabelNode(fontNamed: font)
+        let textNext = SKLabelNode(fontNamed: font)
         
         textlbl.text = textClass
         textlbl.name = "label"
@@ -73,12 +74,18 @@ extension WelcomeScene {
         textlbl.lineBreakMode = .byWordWrapping
         textlbl.preferredMaxLayoutWidth = 390
         
+        textNext.text = "Tap to continue."
+        textNext.fontSize = 25
+        textNext.fontColor = SKColor.darkGray
+        textNext.position = CGPoint(x: textlbl.position.x, y: frame.minY + 70)
+        
         for child in self.children {
             if child.name == "label"{
                 child.removeFromParent()
             }
         }
         addChild(textlbl)
+        addChild(textNext)
     }
     
 }

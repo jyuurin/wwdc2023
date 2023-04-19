@@ -105,12 +105,6 @@ extension MyKnapsackScene {
     func addTextLabel(textClass: String, position: CGPoint, maxLayout: Int) {
         let font: String = "American Typewriter"
         let textlbl = SKLabelNode(fontNamed: font)
-        let textKnapsack = SKLabelNode(fontNamed: font)
-        let textJewelry = [SKLabelNode(fontNamed: font),
-                       SKLabelNode(fontNamed: font),
-                       SKLabelNode(fontNamed: font),
-                       SKLabelNode(fontNamed: font)
-        ]
         
         textlbl.text = textClass
         textlbl.name = "label"
@@ -121,39 +115,7 @@ extension MyKnapsackScene {
         textlbl.lineBreakMode = .byWordWrapping
         textlbl.preferredMaxLayoutWidth = CGFloat(maxLayout)
 
-        textJewelry[0].text = "Necklace: 40units - 30$"
-        textJewelry[1].text = "Keychain: 30units - 20$"
-        textJewelry[2].text = "Earrings: 10units - 20$"
-        textJewelry[3].text = "Bracelet: 20units - 40$"
-        textJewelry[0].position = CGPoint(x: frame.midX - 50, y: frame.minY + 30)
-        textJewelry[1].position = CGPoint(x: frame.midX + 70, y: frame.midX - 130)
-        textJewelry[2].position = CGPoint(x: frame.midX, y: frame.maxY - 140)
-        textJewelry[3].position = CGPoint(x: frame.maxX - 150, y: frame.maxY - 90)
         
-        textJewelry[0].lineBreakMode = .byWordWrapping
-        textJewelry[1].lineBreakMode = .byWordWrapping
-        textJewelry[2].lineBreakMode = .byWordWrapping
-        textJewelry[3].lineBreakMode = .byWordWrapping
-        textJewelry[0].fontColor = SKColor.darkGray
-        textJewelry[1].fontColor = SKColor.darkGray
-        textJewelry[2].fontColor = SKColor.darkGray
-        textJewelry[3].fontColor = SKColor.darkGray
-        textJewelry[0].fontSize = 25
-        textJewelry[1].fontSize = 25
-        textJewelry[2].fontSize = 25
-        textJewelry[3].fontSize = 25
-        textJewelry[0].numberOfLines = 0
-        textJewelry[1].numberOfLines = 0
-        textJewelry[2].numberOfLines = 0
-        textJewelry[3].numberOfLines = 0
-        textJewelry[0].preferredMaxLayoutWidth = 200
-        textJewelry[1].preferredMaxLayoutWidth = 200
-        textJewelry[2].preferredMaxLayoutWidth = 200
-        textJewelry[3].preferredMaxLayoutWidth = 200
-        
-        textKnapsack.text = "Capacity of Knapsack: 40units"
-        textKnapsack.numberOfLines = 0
-        textKnapsack.preferredMaxLayoutWidth = 150
         
         
         for child in self.children {
@@ -162,10 +124,6 @@ extension MyKnapsackScene {
             }
         }
         addChild(textlbl)
-        addChild(textJewelry[0])
-        addChild(textJewelry[1])
-        addChild(textJewelry[2])
-        addChild(textJewelry[3])
     }
     
 }

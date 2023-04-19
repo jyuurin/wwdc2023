@@ -23,8 +23,7 @@ class KnapsackScene: SKScene {
         addBackground(bgname: "bg1")
         jewelryList.forEach(addSpriteJewelry)
         addSpriteKnapsack(knapsack: knapsack, knapsackName: "mochila")
-        print(knapsack.name!)
-
+        
         addTextCount()
         itemSlot = [
             CGPoint(x: frame.midX, y: frame.midY - 30),
@@ -32,6 +31,7 @@ class KnapsackScene: SKScene {
             CGPoint(x: frame.midX + 200, y: frame.midY - 30),
             CGPoint(x: frame.midX + 300, y: frame.midY - 30)
         ]
+        addTextLabel()
 
     }
     

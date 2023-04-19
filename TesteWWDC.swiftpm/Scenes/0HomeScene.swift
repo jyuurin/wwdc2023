@@ -51,7 +51,6 @@ extension HomeScene {
         buttonSprite.physicsBody?.allowsRotation = false
         buttonSprite.physicsBody?.isDynamic = true
         
-        
         addChild(buttonSprite)
     }
 }

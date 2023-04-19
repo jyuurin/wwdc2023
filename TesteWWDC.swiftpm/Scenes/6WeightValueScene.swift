@@ -23,7 +23,7 @@ class WeightValueScene: SKScene {
         addBackground(bgname: "bg1")
         addTextBox(item: textbox, itemName: "textbox")
         addSpriteCharacter(character: character, characterName: "results")
-        addTextLabel(textClass: textLabel, position: CGPoint(x: frame.midX + 100, y: frame.minY + 70), maxLayout: 600)
+        addTextLabel(textClass: textLabel, position: CGPoint(x: frame.midX + 100, y: frame.minY + 50), maxLayout: 600)
         
     }
     
@@ -96,6 +96,10 @@ extension WeightValueScene {
     func addTextLabel(textClass: String, position: CGPoint, maxLayout: Int) {
         let font: String = "American Typewriter"
         let textlbl = SKLabelNode(fontNamed: font)
+        let textSituations = [SKLabelNode(fontNamed: font),
+                       SKLabelNode(fontNamed: font),
+                       SKLabelNode(fontNamed: font),
+        ]
         
         textlbl.text = textClass
         textlbl.name = "label"
@@ -106,11 +110,25 @@ extension WeightValueScene {
         textlbl.lineBreakMode = .byWordWrapping
         textlbl.preferredMaxLayoutWidth = CGFloat(maxLayout)
         
+        textSituations[0].text = "To heavy!"
+        textSituations[1].text = "No profit!"
+        textSituations[2].text = "Perfect!"
+        textSituations[0].position = CGPoint(x: frame.minX + 200, y: frame.maxY - 100)
+        textSituations[1].position = CGPoint(x: frame.midX, y: frame.maxY - 100)
+        textSituations[2].position = CGPoint(x: frame.maxX - 200, y: frame.maxY - 100)
+        textSituations[0].fontColor = SKColor.darkGray
+        textSituations[1].fontColor = SKColor.darkGray
+        textSituations[2].fontColor = SKColor.darkGray
+        
+        
         for child in self.children {
             if child.name == "label"{
                 child.removeFromParent()
             }
         }
         addChild(textlbl)
+        addChild(textSituations[0])
+        addChild(textSituations[1])
+        addChild(textSituations[2])
     }
 }

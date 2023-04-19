@@ -91,8 +91,8 @@ extension KnapsackScene {
         let jewelryTitle = SKLabelNode(fontNamed: font)
         let capacity = SKLabelNode(fontNamed: font)
         let quantity = SKLabelNode(fontNamed: font)
-        let amount = SKLabelNode(fontNamed: font)
-        let (capacityValue, quantityValue, amountValue) = calculateValues()
+        let price = SKLabelNode(fontNamed: font)
+        let (capacityValue, quantityValue, priceValue) = calculateValues()
         
         jewelryTitle.text = "Jewelry in knapsack:"
         jewelryTitle.name = "label"
@@ -100,24 +100,24 @@ extension KnapsackScene {
         jewelryTitle.fontColor = SKColor.darkGray
         jewelryTitle.position = CGPoint(x: frame.midX + 200, y: frame.midY - 150)
         
-        capacity.text = "Capacity of knapsack: \(capacityValue)"
+        capacity.text = "Pieces in knapsack: \(capacityValue)"
         capacity.fontSize = 25
         capacity.name = "label"
         capacity.fontColor = SKColor.darkGray
         capacity.position = CGPoint(x: jewelryTitle.position.x, y: jewelryTitle.position.y - 30)
         
-        quantity.text = "Number of jewelry: \(quantityValue)"
+        price.text = "Accumulated price: \(priceValue)"
+        price.fontSize = 25
+        price.name = "label"
+        price.fontColor = SKColor.darkGray
+        price.position = CGPoint(x: jewelryTitle.position.x, y: jewelryTitle.position.y - 60)
+        
+        quantity.text = "Quantity of jewelry: \(quantityValue)"
         quantity.fontSize = 25
         quantity.name = "label"
         quantity.fontColor = SKColor.darkGray
-        quantity.position = CGPoint(x: jewelryTitle.position.x, y: jewelryTitle.position.y - 60)
+        quantity.position = CGPoint(x: jewelryTitle.position.x, y: jewelryTitle.position.y - 90)
         
-        amount.text = "Accumulated amount: \(amountValue)"
-        amount.fontSize = 25
-        amount.name = "label"
-        amount.fontColor = SKColor.darkGray
-        amount.position = CGPoint(x: jewelryTitle.position.x, y: jewelryTitle.position.y - 90)
-        print(amount.position)
         
         addSpriteButton(position: CGPoint(x: jewelryTitle.position.x, y: jewelryTitle.position.y - 200))
         
@@ -131,8 +131,63 @@ extension KnapsackScene {
         addChild(jewelryTitle)
         addChild(capacity)
         addChild(quantity)
-        addChild(amount)
+        addChild(price)
     }
+    
+    func addTextLabel() {
+        let font: String = "American Typewriter"
+        let txtKnapsackCapacity = SKLabelNode(fontNamed: font)
+        let textJewelry = [SKLabelNode(fontNamed: font),
+                       SKLabelNode(fontNamed: font),
+                       SKLabelNode(fontNamed: font),
+                       SKLabelNode(fontNamed: font)
+        ]
+        
+        txtKnapsackCapacity.text = "Knapsack Limit: 40 pieces of Jewelry "
+        txtKnapsackCapacity.position = CGPoint(x: frame.maxX - 90, y: frame.maxY - 180)
+        txtKnapsackCapacity.fontColor = SKColor.darkGray
+        txtKnapsackCapacity.lineBreakMode = .byWordWrapping
+        txtKnapsackCapacity.fontSize = 30
+        txtKnapsackCapacity.numberOfLines = 3
+        txtKnapsackCapacity.preferredMaxLayoutWidth = 200
+        
+        textJewelry[0].text = "Necklace: 40pcs - 30$"
+        textJewelry[1].text = "Keychain: 30pcs - 20$"
+        textJewelry[2].text = "Earrings: 10pcs - 20$"
+        textJewelry[3].text = "Bracelet: 20pcs - 40$"
+        textJewelry[0].position = CGPoint(x: frame.minX + 90, y: frame.maxY - 180)
+        textJewelry[1].position = CGPoint(x: frame.minX + 230, y: frame.minY + 100)
+        textJewelry[2].position = CGPoint(x: frame.midX - 250, y: frame.midY + 50)
+        textJewelry[3].position = CGPoint(x: frame.minX + 100, y: frame.midY - 90)
+        
+        textJewelry[0].lineBreakMode = .byWordWrapping
+        textJewelry[1].lineBreakMode = .byWordWrapping
+        textJewelry[2].lineBreakMode = .byWordWrapping
+        textJewelry[3].lineBreakMode = .byWordWrapping
+        textJewelry[0].fontColor = SKColor.darkGray
+        textJewelry[1].fontColor = SKColor.darkGray
+        textJewelry[2].fontColor = SKColor.darkGray
+        textJewelry[3].fontColor = SKColor.darkGray
+        textJewelry[0].fontSize = 20
+        textJewelry[1].fontSize = 20
+        textJewelry[2].fontSize = 20
+        textJewelry[3].fontSize = 20
+        textJewelry[0].numberOfLines = 0
+        textJewelry[1].numberOfLines = 0
+        textJewelry[2].numberOfLines = 0
+        textJewelry[3].numberOfLines = 0
+        textJewelry[0].preferredMaxLayoutWidth = 150
+        textJewelry[1].preferredMaxLayoutWidth = 150
+        textJewelry[2].preferredMaxLayoutWidth = 150
+        textJewelry[3].preferredMaxLayoutWidth = 130
+        
+        addChild(textJewelry[0])
+        addChild(textJewelry[1])
+        addChild(textJewelry[2])
+        addChild(textJewelry[3])
+        addChild(txtKnapsackCapacity)
+    }
+    
     
     func calculateResults() {
         

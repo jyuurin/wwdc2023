@@ -3,10 +3,11 @@ import SpriteKit
 
 struct ContentView: View {
     
-    @State var currentScene: SKScene = KnapsackScene(size: CGSize(width: 1024, height: 768))
+    @State var currentScene: SKScene = MyKnapsackScene(size: CGSize(width: 1024, height: 768))
     
     var body: some View {
         SpriteView(scene: currentScene)
+            .ignoresSafeArea()
     }
 }
 
